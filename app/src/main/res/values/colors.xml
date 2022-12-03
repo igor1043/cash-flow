@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#641964</color>
+    <color name="colorPrimaryDark">#575757</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- BRAND COLORS -->
+    <color name="sb_white">#FFFFFF</color>
+    <color name="sb_yellow">#FBCE07</color>
+    <color name="sb_purple">#641964</color>
+    <color name="sb_red">#DD1D21</color>
+
+
+    <!--  THEME COLORS  -->
+    <color name="primary_90">#C6A516</color>
+    <color name="primary_70">#DBB717</color>
+    <color name="primary_60">#FBCE07</color>
+    <color name="primary_50">#FFDD41</color>
+    <color name="primary_30">#FBEA9E</color>
+    <color name="primary_10">#FBF3D0</color>
+
+    <color name="secondary_90">#BD0609</color>
+    <color name="secondary_70">#D1060A</color>
+    <color name="secondary_60">#DD1D21</color>
+    <color name="secondary_50">#E1484B</color>
+    <color name="secondary_30">#E67375</color>
+    <color name="secondary_10">#EA9D9F</color>
+
+    <color name="tertiary_90">#450A45</color>
+    <color name="tertiary_70">#541154</color>
+    <color name="tertiary_60">#641964</color>
+    <color name="tertiary_50">#804480</color>
+    <color name="tertiary_30">#9D709D</color>
+    <color name="tertiary_10">#B99BB9</color>
+
+
+    <!-- NEUTRAL COLORS -->
+    <color name="neutral_500">#000000</color>
+    <color name="neutral_80">#404040</color>
+    <color name="neutral_70">#595959</color>
+    <color name="neutral_60">#7F7F7F</color>
+    <color name="neutral_50">#A6A6A6</color>
+    <color name="neutral_30">#E6E6E6</color>
+    <color name="neutral_20">#EEEEEE</color>
+    <color name="neutral_10">#F7F7F7</color>
+    <color name="neutral_00">#FFFFFF</color>
+
+
+    <!-- ALERT COLORS -->
+    <color name="success_60">#008443</color>
+    <color name="success_50">#309A66</color>
+    <color name="success_30">#61B18A</color>
+    <color name="success_10">#91C6AC</color>
+
+    <color name="warning_60">#EB8705</color>
+    <color name="warning_50">#EC9C34</color>
+    <color name="warning_30">#EEB264</color>
+    <color name="warning_10">#EFC793</color>
+
+    <color name="danger_60">#DD1D21</color>
+    <color name="danger_50">#E1484B</color>
+    <color name="danger_30">#E67375</color>
+    <color name="danger_10">#EA9D9F</color>
+
+    <color name="info_60">#009EB4</color>
+    <color name="info_50">#30AFC0</color>
+    <color name="info_30">#61C0CD</color>
+    <color name="info_10">#91D1D9</color>
+
+    <color name="green_10">#4cb050</color>
+
+    <color name="red_10">#fb3f36</color>
+
+
+
+</resources>
