@@ -3,20 +3,30 @@ package com.cashflow.room.mvvm.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.cashflow.room.mvvm.utils.Event
+import com.cashflow.room.mvvm.utils.date.Month
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import javax.inject.Singleton
 
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
-    @Singleton
-    val _successSendPoints = MutableLiveData<Event<Boolean>>()
-    val successSendPoints: LiveData<Event<Boolean>> = _successSendPoints
+    private val _currentMonth = MutableLiveData<Event<Month>>()
+    val currentMonth: LiveData<Event<Month>> = _currentMonth
 
+    private val _currentYear = MutableLiveData<Event<Int>>()
+    val currentYear: LiveData<Event<Int>> = _currentYear
 
-   }
+    fun setCurrentMonth(month: Month){
+        _currentMonth.value = Event(month)
+    }
+    fun setCurrentYear(currentYear: Int){
+        _currentYear.value = Event(currentYear)
+    }
+    fun getCurrentYear() : Int {
+        return currentYear.value?.peekContent() ?: 0
+    }
+
+}

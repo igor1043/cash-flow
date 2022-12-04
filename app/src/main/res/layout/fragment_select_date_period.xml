@@ -9,7 +9,12 @@
 
         <variable
             name="moths"
-            type="com.cashflow.room.mvvm.utils.date.Months" />
+            type="com.cashflow.room.mvvm.utils.date.Month" />
+
+        <variable
+            name="viewModel"
+            type="com.cashflow.room.mvvm.home.bottomsheet.SelectedDatePeriodViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,14 +39,59 @@
                 android:layout_height="match_parent">
 
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/linearLayoutCompat"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@color/colorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/neutral_00"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="2022" />
+
+                    <ImageView
+                        android:id="@+id/button_after_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="25dp"
+                        android:src="@drawable/ic_chevron_left"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/year"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/neutral_00" />
+
+                    <ImageView
+                        android:id="@+id/button_next_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginStart="25dp"
+                        android:src="@drawable/ic_chevron_next"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/year"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/neutral_00" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -56,6 +106,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat">
 
                     <TextView
+                        android:id="@+id/jan"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -63,12 +114,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.JANUARY)}"
                         android:text="@{moths.JANUARY.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="JAN" />
 
                     <TextView
+                        android:id="@+id/fev"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -76,12 +130,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.FEBRUARY)}"
                         android:text="@{moths.FEBRUARY.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="FEV" />
 
                     <TextView
+                        android:id="@+id/mar"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -89,12 +146,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.MARCH)}"
                         android:text="@{moths.MARCH.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="MAR" />
 
                     <TextView
+                        android:id="@+id/abri"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -102,12 +162,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.APRIL)}"
                         android:text="@{moths.APRIL.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="ABR" />
 
                     <TextView
+                        android:id="@+id/mai"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -115,12 +178,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.MAY)}"
                         android:text="@{moths.MAY.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="MAI" />
 
                     <TextView
+                        android:id="@+id/jun"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -128,7 +194,9 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.JUNE)}"
                         android:text="@{moths.JUNE.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="JUN" />
@@ -141,11 +209,13 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:orientation="horizontal"
+                    android:textColor="@color/neutral_60"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                     <TextView
+                        android:id="@+id/jul"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -153,12 +223,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.JULY)}"
                         android:text="@{moths.JULY.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="JUL" />
 
                     <TextView
+                        android:id="@+id/ago"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -166,12 +239,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.AUGUST)}"
                         android:text="@{moths.AUGUST.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="AGO" />
 
                     <TextView
+                        android:id="@+id/set"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -179,12 +255,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.SEPTEMBER)}"
                         android:text="@{moths.SEPTEMBER.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="SET" />
 
                     <TextView
+                        android:id="@+id/out"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -192,12 +271,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.OCTOBER)}"
                         android:text="@{moths.OCTOBER.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="OUT" />
 
                     <TextView
+                        android:id="@+id/nov"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -205,12 +287,15 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.NOVEMBER)}"
                         android:text="@{moths.NOVEMBER.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="NOV" />
 
                     <TextView
+                        android:id="@+id/dez"
                         android:layout_width="wrap_content"
                         android:layout_height="34sp"
                         android:layout_weight="1"
@@ -218,7 +303,9 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
+                        android:onClick="@{() -> viewModel.setCurrentMonth(moths.DECEMBER)}"
                         android:text="@{moths.DECEMBER.abreviation}"
+                        android:textColor="@color/neutral_60"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         tools:text="DEZ" />
@@ -229,34 +316,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="34sp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="Selecionar"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="18sp"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout_2" />
 
                 <TextView
+                    android:id="@+id/button_cancell"
                     android:layout_width="wrap_content"
                     android:layout_height="34sp"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
+
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="Cancelar"
-                    android:textSize="18sp"
+                    android:textColor="@color/neutral_60"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -18,6 +18,8 @@ import com.cashflow.room.mvvm.home.bottomsheet.SelectedDatePeriodBottomSheet
 import com.cashflow.room.mvvm.home.mock.MockMovements
 import com.cashflow.room.mvvm.home.mock.MockSpendingCategory
 import com.cashflow.room.mvvm.utils.EventObserver
+import com.cashflow.room.mvvm.utils.date.getCurrentMonth
+import com.cashflow.room.mvvm.utils.date.getCurrentYear
 import com.cashflow.room.mvvm.utils.styles.setStatusBarDarkMode
 import com.example.room.mvvm.databinding.FragmentHomeBinding
 
@@ -29,6 +31,12 @@ class HomeFragment : Fragment() {
     private lateinit var movementsAdapter: MovementsAdapter
 
     private val homeViewModel: HomeViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        homeViewModel.setCurrentMonth(getCurrentMonth())
+        homeViewModel.setCurrentYear(getCurrentYear())
+        super.onCreate(savedInstanceState)
+    }
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreateView(
@@ -54,16 +62,24 @@ class HomeFragment : Fragment() {
         movementsAdapter.submitList(MockMovements.createListMovements())
         binding.moviments.recycleView.adapter = movementsAdapter
 
+        setupClick()
+        setupObservers()
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun setupClick() {
         binding.principalCard.bottomDatePeriod.setOnClickListener {
             startFragmentSelectedDatePeriodBottomSheet()
 
             doubleClick(binding.principalCard.bottomDatePeriod)
         }
+    }
 
-        homeViewModel.successSendPoints.observe(viewLifecycleOwner, EventObserver {
-            var teste = 0
+    private fun setupObservers() {
+        homeViewModel.currentMonth.observe(viewLifecycleOwner, EventObserver{
+            binding.principalCard.mouth.text = it.brazilianName
+
         })
-        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun doubleClick(teste: ConstraintLayout) {
