@@ -225,6 +225,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/buttom_select_period"
                     android:layout_width="wrap_content"
                     android:layout_height="34sp"
                     android:layout_marginTop="15dp"

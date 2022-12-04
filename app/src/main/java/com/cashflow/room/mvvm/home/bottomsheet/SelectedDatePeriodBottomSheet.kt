@@ -8,6 +8,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import com.cashflow.room.mvvm.home.HomeViewModel
+import com.cashflow.room.mvvm.utils.Event
 import com.example.room.mvvm.R
 import com.example.room.mvvm.databinding.FragmentSelectDatePeriodBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -21,6 +25,7 @@ class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentSelectDatePeriodBinding
     private lateinit var mBehavior: BottomSheetBehavior<View>
 
+    private val homeViewModel: HomeViewModel by activityViewModels ()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val inflater = LayoutInflater.from(requireContext())
@@ -40,9 +45,15 @@ class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
         bottomSheet.backgroundTintMode = PorterDuff.Mode.CLEAR
         bottomSheet.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
         bottomSheet.setBackgroundColor(Color.TRANSPARENT)
+
+        binding.buttomSelectPeriod.setOnClickListener {
+            homeViewModel._successSendPoints.value = Event(true)
+        }
+
         return dialog
 
     }
+
 
     override fun onResume() {
         super.onResume()
