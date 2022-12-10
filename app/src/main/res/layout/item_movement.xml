@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/icon_spending"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="12dp"
@@ -36,8 +36,8 @@
                 android:text="Compras semanais"
                 android:textColor="@color/neutral_500"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
-                app:layout_constraintTop_toTopOf="@+id/imageView5" />
+                app:layout_constraintStart_toEndOf="@+id/icon_spending"
+                app:layout_constraintTop_toTopOf="@+id/icon_spending" />
 
             <TextView
                 android:id="@+id/type_movement"
@@ -47,7 +47,7 @@
                 android:text="Compras semanais"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/icon_spending"
                 app:layout_constraintTop_toBottomOf="@+id/name_movement" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:text="10:25 PM - 20/12"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/icon_spending"
                 app:layout_constraintTop_toBottomOf="@+id/type_movement" />
 
 
@@ -81,7 +81,7 @@
                 android:text="Não Pago"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                app:layout_constraintBottom_toBottomOf="@+id/icon_spending"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/value_movement" />
 

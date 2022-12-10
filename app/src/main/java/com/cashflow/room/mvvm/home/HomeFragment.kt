@@ -1,17 +1,17 @@
 package com.cashflow.room.mvvm.home
 
 
+import android.R.attr.publicKey
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.cashflow.room.mvvm.home.adapter.MovementsAdapter
 import com.cashflow.room.mvvm.home.adapter.SpendingByCategoryAdapter
 import com.cashflow.room.mvvm.home.bottomsheet.SelectedDatePeriodBottomSheet
@@ -22,7 +22,6 @@ import com.cashflow.room.mvvm.utils.date.getCurrentMonth
 import com.cashflow.room.mvvm.utils.date.getCurrentYear
 import com.cashflow.room.mvvm.utils.styles.setStatusBarDarkMode
 import com.example.room.mvvm.databinding.FragmentHomeBinding
-
 
 class HomeFragment : Fragment() {
 
@@ -54,7 +53,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         spendingByCategoryAdapter = SpendingByCategoryAdapter()
-        spendingByCategoryAdapter.submitList(MockSpendingCategory.createListItens())
+        spendingByCategoryAdapter.submitList(MockSpendingCategory.createListItens(requireContext()))
         binding.spendingCategory.recycleView.adapter = spendingByCategoryAdapter
 
 
