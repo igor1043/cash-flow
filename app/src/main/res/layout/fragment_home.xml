@@ -3,161 +3,171 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/neutral_10">
+        android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            android:background="@color/neutral_10">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <include
-                    android:id="@+id/toolbar"
-                    layout="@layout/fragment_home_toolbar"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <!-- Toolbar Container -->
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_tv_username"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/toolbar">
+                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/new_text_view_username"
-                        android:layout_width="0dp"
+                    <include
+                        android:id="@+id/toolbar"
+                        layout="@layout/fragment_home_toolbar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Toolbar Container -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_tv_username"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="14sp"
-                        android:layout_marginTop="14sp"
-                        android:layout_marginEnd="14sp"
-                        android:fontFamily="@font/cash_bold"
-                        android:text="Olá, Igor Vinicius"
-                        android:textColor="@color/neutral_80"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:visibility="visible" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cardView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_tv_username">
+                        <TextView
+                            android:id="@+id/new_text_view_username"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14sp"
+                            android:layout_marginTop="14sp"
+                            android:layout_marginEnd="14sp"
+                            android:fontFamily="@font/cash_bold"
+                            android:text="Olá, Igor Vinicius"
+                            android:textColor="@color/neutral_80"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:visibility="visible" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <include
-                        android:id="@+id/principal_card"
-                        layout="@layout/layout_card_home"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cardView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_marginTop="14dp"
-                        android:layout_marginEnd="14dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:visibility="visible" />
+                        app:layout_constraintTop_toBottomOf="@+id/cl_tv_username">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/create_movimentation"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="14dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="14dp"
-                        android:backgroundTint="@color/colorPrimary"
-                        app:cardCornerRadius="5dp"
-                        app:cardElevation="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/principal_card">
+                        <include
+                            android:id="@+id/principal_card"
+                            layout="@layout/layout_card_home"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="14dp"
+                            android:layout_marginEnd="14dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:visibility="visible" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_height="match_parent" >
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/create_movimentation"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="14dp"
+                            android:backgroundTint="@color/colorPrimary"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="2dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/principal_card">
 
-                            <TextView
-                                android:id="@+id/textView6"
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/cash_bold"
-                                android:text="Criar Movimentação"
-                                android:textColor="@color/neutral_00"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center">
 
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/ic_attach_money"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/textView6"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:tint="@color/neutral_00" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                <TextView
+                                    android:id="@+id/textView6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/cash_bold"
+                                    android:text="Criar Movimentação"
+                                    android:textColor="@color/neutral_00"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
-                    </androidx.cardview.widget.CardView>
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:src="@drawable/ic_attach_money"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/textView6"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:tint="@color/neutral_00" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <include
-                        android:id="@+id/buttons_home"
-                        layout="@layout/layout_buttons_home"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="20dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/create_movimentation"
-                        tools:visibility="visible" />
+                        </androidx.cardview.widget.CardView>
 
-                    <include
-                        android:id="@+id/moviments"
-                        layout="@layout/layout_container_moviments_home"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="5dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/buttons_home" />
+                        <include
+                            android:id="@+id/buttons_home"
+                            layout="@layout/layout_buttons_home"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/create_movimentation"
+                            tools:visibility="visible" />
 
-                    <include
-                        android:id="@+id/spending_category"
-                        layout="@layout/layout_container_spending_by_category"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="5dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/moviments" />
+                        <include
+                            android:id="@+id/moviments"
+                            layout="@layout/layout_container_moviments_home"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/buttons_home" />
 
+                        <include
+                            android:id="@+id/spending_category"
+                            layout="@layout/layout_container_spending_by_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/moviments" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/navigation_view"
+            layout="@layout/navigation_view" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 </layout>
 

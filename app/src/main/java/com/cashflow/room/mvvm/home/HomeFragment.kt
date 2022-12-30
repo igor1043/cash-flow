@@ -1,15 +1,18 @@
 package com.cashflow.room.mvvm.home
 
 
-import android.R.attr.publicKey
+import android.content.ContentValues.TAG
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.cashflow.room.mvvm.home.adapter.MovementsAdapter
@@ -22,6 +25,8 @@ import com.cashflow.room.mvvm.utils.date.getCurrentMonth
 import com.cashflow.room.mvvm.utils.date.getCurrentYear
 import com.cashflow.room.mvvm.utils.styles.setStatusBarDarkMode
 import com.example.room.mvvm.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.navigation_view.view.*
+
 
 class HomeFragment : Fragment() {
 
@@ -56,7 +61,6 @@ class HomeFragment : Fragment() {
         spendingByCategoryAdapter.submitList(MockSpendingCategory.createListItens(requireContext()))
         binding.spendingCategory.recycleView.adapter = spendingByCategoryAdapter
 
-
         movementsAdapter = MovementsAdapter()
         movementsAdapter.submitList(MockMovements.createListMovements())
         binding.moviments.recycleView.adapter = movementsAdapter
@@ -71,6 +75,11 @@ class HomeFragment : Fragment() {
             startFragmentSelectedDatePeriodBottomSheet()
 
             doubleClick(binding.principalCard.bottomDatePeriod)
+        }
+        binding.toolbar.icMenu.setOnClickListener {
+
+            //binding.navigationView.menu.getItem(0).isChecked = true
+
         }
     }
 
