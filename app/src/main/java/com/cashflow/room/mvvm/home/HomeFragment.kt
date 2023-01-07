@@ -1,23 +1,20 @@
 package com.cashflow.room.mvvm.home
 
-
-import android.content.ContentValues.TAG
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.drawerlayout.widget.DrawerLayout
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.cashflow.room.mvvm.home.adapter.MovementsAdapter
 import com.cashflow.room.mvvm.home.adapter.SpendingByCategoryAdapter
-import com.cashflow.room.mvvm.home.bottomsheet.SelectedDatePeriodBottomSheet
+import com.cashflow.room.mvvm.home.bottomsheet.selectdateperiod.SelectedDatePeriodBottomSheet
+import com.cashflow.room.mvvm.home.bottomsheet.selectmovement.SelectedMovementBottomSheet
 import com.cashflow.room.mvvm.home.mock.MockMovements
 import com.cashflow.room.mvvm.home.mock.MockSpendingCategory
 import com.cashflow.room.mvvm.utils.EventObserver
@@ -26,7 +23,6 @@ import com.cashflow.room.mvvm.utils.date.getCurrentYear
 import com.cashflow.room.mvvm.utils.styles.setStatusBarDarkMode
 import com.example.room.mvvm.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.navigation_view.view.*
-
 
 class HomeFragment : Fragment() {
 
@@ -44,10 +40,10 @@ class HomeFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         setStatusBarDarkMode(true)
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -56,7 +52,6 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         spendingByCategoryAdapter = SpendingByCategoryAdapter()
         spendingByCategoryAdapter.submitList(MockSpendingCategory.createListItens(requireContext()))
         binding.spendingCategory.recycleView.adapter = spendingByCategoryAdapter
@@ -77,17 +72,20 @@ class HomeFragment : Fragment() {
             doubleClick(binding.principalCard.bottomDatePeriod)
         }
         binding.toolbar.icMenu.setOnClickListener {
-
-            //binding.navigationView.menu.getItem(0).isChecked = true
-
+            binding.drawerLayout.openDrawer(GravityCompat.START, true)
+        }
+        binding.createMovement.setOnClickListener {
+            startFragmentSelectedMovementBottomSheet()
         }
     }
 
     private fun setupObservers() {
-        homeViewModel.currentMonth.observe(viewLifecycleOwner, EventObserver{
-            binding.principalCard.mouth.text = it.brazilianName
-
-        })
+        homeViewModel.currentMonth.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                binding.principalCard.mouth.text = it.brazilianName
+            }
+        )
     }
 
     private fun doubleClick(teste: ConstraintLayout) {
@@ -106,5 +104,12 @@ class HomeFragment : Fragment() {
         )
     }
 
-
+    private fun startFragmentSelectedMovementBottomSheet() {
+        val bottomSheetDialog =
+            SelectedMovementBottomSheet.newInstance()
+        bottomSheetDialog.show(
+            requireActivity().supportFragmentManager,
+            SelectedMovementBottomSheet.FRAGMENT_TAG
+        )
+    }
 }

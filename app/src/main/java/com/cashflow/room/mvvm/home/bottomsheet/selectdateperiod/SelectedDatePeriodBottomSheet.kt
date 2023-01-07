@@ -1,4 +1,4 @@
-package com.cashflow.room.mvvm.home.bottomsheet
+package com.cashflow.room.mvvm.home.bottomsheet.selectdateperiod
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -20,7 +20,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_select_date_period.*
-
 
 class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
     private val TAG = SelectedDatePeriodBottomSheet::class.java.simpleName
@@ -56,14 +55,16 @@ class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
         setupObservers()
         setupClick()
         return dialog
-
     }
 
     private fun setupObservers() {
-        selectedDatePeriodViewModel.selectMonth.observe(this, EventObserver {
-            clearTextColorMonth()
-            setTextColorMonth(it)
-        })
+        selectedDatePeriodViewModel.selectMonth.observe(
+            this,
+            EventObserver {
+                clearTextColorMonth()
+                setTextColorMonth(it)
+            }
+        )
     }
 
     private fun setupClick() {
@@ -100,7 +101,6 @@ class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
         binding.buttonCancell.setOnClickListener {
             mBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         }
-
     }
 
     @SuppressLint("ResourceAsColor")
@@ -142,7 +142,6 @@ class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
             Month.DECEMBER -> {
                 binding.dez.setTextColor(resources.getColor(R.color.colorPrimary))
             }
-
         }
     }
 
@@ -172,16 +171,9 @@ class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
     }
 
     companion object {
-        /**
-         * Argumento para ser passado para o fragment
-         */
         const val FRAGMENT_TAG = "bottomSheetFragmentMaterialTag"
-        private const val ARG_SERVICE_ORDER_ID = "serviceOrderId"
-        private const val ARG_ACCOUNT_ID = "accountId"
-        private const val ARG_GEO_ID = "geoId"
 
-        fun newInstance(
-        ): SelectedDatePeriodBottomSheet {
+        fun newInstance(): SelectedDatePeriodBottomSheet {
             return SelectedDatePeriodBottomSheet().apply { }
         }
     }

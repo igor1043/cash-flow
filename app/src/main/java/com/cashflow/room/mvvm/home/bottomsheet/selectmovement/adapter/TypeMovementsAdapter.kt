@@ -1,20 +1,23 @@
-package com.cashflow.room.mvvm.home.adapter
+package com.cashflow.room.mvvm.home.bottomsheet.selectmovement.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.cashflow.room.mvvm.home.modelview.MovementUiModel
+import com.cashflow.room.mvvm.utils.movements.TypesMovements
 import com.example.room.mvvm.R
-import com.example.room.mvvm.databinding.ItemMovementBinding
+import com.example.room.mvvm.databinding.ItemTypeMovementBinding
 import kotlinx.android.synthetic.main.item_spending_category.view.*
 
-class MovementsAdapter() :
-    ListAdapter<MovementUiModel, MovementsAdapter.ViewHolder>(DIFF_CALLBACK) {
+class TypeMovementsAdapter(val context: Context) :
+    ListAdapter<TypesMovements, TypeMovementsAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private val positionItem = MutableLiveData<Int>()
 
@@ -22,7 +25,7 @@ class MovementsAdapter() :
         return ViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.item_movement,
+                R.layout.item_type_movement,
                 parent,
                 false
             )
@@ -35,33 +38,32 @@ class MovementsAdapter() :
     }
 
     inner class ViewHolder(
-        val binding: ItemMovementBinding
+        val binding: ItemTypeMovementBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(movementUiModel: MovementUiModel) {
+        fun bind(typeMovement: TypesMovements) {
             with(binding) {
-                this.nameMovement.text = movementUiModel.name
-                this.typeMovement.text = movementUiModel.typeMovement
-                this.dateMovement.text = movementUiModel.date
-                this.valueMovement.text = "R$${movementUiModel.value}"
-                this.status.text = movementUiModel.status
-
+                this.nameMovement.text = typeMovement.nameMovement
+                this.iconMovement.setBackgroundResource(typeMovement.icon)
+                this.iconMovement.setColorFilter(ContextCompat.getColor(context, typeMovement.color), android.graphics.PorterDuff.Mode.MULTIPLY);
+                this.iconMovement.backgroundTintList =
+                    ColorStateList.valueOf(context.getColor(typeMovement.color))
                 executePendingBindings()
             }
         }
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovementUiModel>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TypesMovements>() {
             override fun areItemsTheSame(
-                oldItem: MovementUiModel,
-                newItem: MovementUiModel
+                oldItem: TypesMovements,
+                newItem: TypesMovements
             ): Boolean = oldItem == newItem
 
             override fun areContentsTheSame(
-                oldItem: MovementUiModel,
-                newItem: MovementUiModel
+                oldItem: TypesMovements,
+                newItem: TypesMovements
             ): Boolean = oldItem == newItem
         }
     }

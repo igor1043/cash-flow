@@ -1,9 +1,3 @@
-/*
- * SipuB - Sistema de Informação Pública
- * @link https://github.com/facilitatech/sipub-cad for the canonical source repository
- * @copyright Copyright (c) Facilita.tech. (https://facilita.tech)
- */
-
 package com.cashflow.room.mvvm.home.adapter
 
 import android.annotation.SuppressLint
@@ -22,7 +16,6 @@ import com.example.room.mvvm.R
 import com.example.room.mvvm.databinding.ItemSpendingCategoryBinding
 import kotlin.math.round
 
-
 class SpendingByCategoryAdapter() :
     ListAdapter<SpendingCategoryUiModel, SpendingByCategoryAdapter.ViewHolder>(DIFF_CALLBACK) {
 
@@ -32,7 +25,9 @@ class SpendingByCategoryAdapter() :
         return ViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.item_spending_category, parent, false
+                R.layout.item_spending_category,
+                parent,
+                false
             )
         )
     }

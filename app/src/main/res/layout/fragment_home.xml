@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_gravity="left"
+        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="RtlHardcoded">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -79,7 +83,7 @@
                             tools:visibility="visible" />
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/create_movimentation"
+                            android:id="@+id/create_movement"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:layout_marginStart="14dp"
@@ -132,7 +136,7 @@
                             android:layout_marginEnd="20dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/create_movimentation"
+                            app:layout_constraintTop_toBottomOf="@+id/create_movement"
                             tools:visibility="visible" />
 
                         <include
