@@ -9,11 +9,11 @@
 
         <variable
             name="moths"
-            type="com.cashflow.room.mvvm.utils.date.Month" />
+            type="com.cashflow.utils.date.Month" />
 
         <variable
             name="viewModel"
-            type="com.cashflow.room.mvvm.home.bottomsheet.selectdateperiod.SelectedDatePeriodViewModel" />
+            type="com.cashflow.home.bottomsheet.selectdateperiod.SelectedDatePeriodViewModel" />
 
     </data>
 

@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/neutral_00"
-        tools:context="com.cashflow.room.mvvm.MainActivity">
+        tools:context="com.cashflow.MainActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
