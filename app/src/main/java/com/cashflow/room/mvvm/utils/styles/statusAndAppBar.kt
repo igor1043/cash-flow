@@ -8,7 +8,7 @@ import android.view.WindowInsetsController
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.room.mvvm.R
+import com.cashflow.room.mvvm.R
 
 fun Fragment.setStatusBarDarkMode(isLightMode: Boolean) {
     activity?.let {

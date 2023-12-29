@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.cashflow.room.mvvm.home.adapter.MovementsAdapter
 import com.cashflow.room.mvvm.home.adapter.SpendingByCategoryAdapter
 import com.cashflow.room.mvvm.home.bottomsheet.selectdateperiod.SelectedDatePeriodBottomSheet
@@ -21,7 +22,7 @@ import com.cashflow.room.mvvm.utils.EventObserver
 import com.cashflow.room.mvvm.utils.date.getCurrentMonth
 import com.cashflow.room.mvvm.utils.date.getCurrentYear
 import com.cashflow.room.mvvm.utils.styles.setStatusBarDarkMode
-import com.example.room.mvvm.databinding.FragmentHomeBinding
+import com.cashflow.room.mvvm.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.navigation_view.view.*
 
 class HomeFragment : Fragment() {
@@ -77,6 +78,9 @@ class HomeFragment : Fragment() {
         binding.createMovement.setOnClickListener {
             startFragmentSelectedMovementBottomSheet()
         }
+        binding.buttonsHome.buttonPurchasesHistoric.setOnClickListener {
+            navigateToCalendar()
+        }
     }
 
     private fun setupObservers() {
@@ -111,5 +115,9 @@ class HomeFragment : Fragment() {
             requireActivity().supportFragmentManager,
             SelectedMovementBottomSheet.FRAGMENT_TAG
         )
+    }
+    private fun navigateToCalendar() {
+        val directions = HomeFragmentDirections.toCalendar()
+        view?.findNavController()?.navigate(directions)
     }
 }

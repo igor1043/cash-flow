@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVVM Room Kotlin Example</string>
+    <string name="app_name">Cash Flow App</string>
 
     <string name="select_type_movement">Selecione o tipo de Movimentação</string>
 

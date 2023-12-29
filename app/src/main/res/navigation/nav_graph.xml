@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/nav_graph"
-            app:startDestination="@id/login">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
 
     <!-- MainFragment -->
-    <fragment android:id="@+id/login"
-              android:name="com.cashflow.room.mvvm.login.MainFragment"
-              android:label="fragment_main"
-              tools:layout="@layout/fragment_login">
+    <fragment
+        android:id="@+id/login"
+        android:name="com.cashflow.room.mvvm.login.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_login">
 
-        <action android:id="@+id/action_login_to_home"
-                app:destination="@id/home"
-                app:popEnterAnim="@anim/slide_in_left"
-                app:popExitAnim="@anim/slide_out_right"
-                app:enterAnim="@anim/slide_in_right"
-                app:exitAnim="@anim/slide_out_left"
-        />
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/home"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
-    <!-- ViewTransactionFragment -->
-    <fragment android:id="@+id/home"
-              android:name="com.cashflow.room.mvvm.home.HomeFragment"
-              android:label="fragment_view_transaction"
-              tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/home"
+        android:name="com.cashflow.room.mvvm.home.HomeFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/to_calendar"
+            app:destination="@id/calendar" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calendar"
+        android:name="com.cashflow.room.mvvm.calendar.CalendarFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_calendar" />
 
 </navigation>

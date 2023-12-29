@@ -3,7 +3,7 @@ package com.cashflow.room.mvvm.home.mock
 import android.annotation.SuppressLint
 import android.content.Context
 import com.cashflow.room.mvvm.home.modelview.SpendingCategoryUiModel
-import com.example.room.mvvm.R
+import com.cashflow.room.mvvm.R
 
 @SuppressLint("ResourceType")
 fun listItens(context: Context): MutableList<SpendingCategoryUiModel> {

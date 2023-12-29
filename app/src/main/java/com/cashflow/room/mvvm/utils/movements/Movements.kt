@@ -1,6 +1,6 @@
 package com.cashflow.room.mvvm.utils.movements
 
-import com.example.room.mvvm.R
+import com.cashflow.room.mvvm.R
 
 class Movements
 

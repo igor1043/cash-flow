@@ -10,8 +10,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.room.mvvm.R
-import com.example.room.mvvm.databinding.FragmentLoginBinding
+import com.cashflow.room.mvvm.R
+import com.cashflow.room.mvvm.databinding.FragmentLoginBinding
 
 
 class MainFragment : Fragment() {

@@ -11,7 +11,7 @@ android {
     compileSdkVersion 32
 
     defaultConfig {
-        applicationId "com.example.room.mvvm"
+        applicationId "com.cashflow.room.mvvm"
         minSdkVersion 24
         targetSdkVersion 32
         versionCode 1

@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cashflow.room.mvvm.home.modelview.MovementUiModel
-import com.example.room.mvvm.R
-import com.example.room.mvvm.databinding.ItemMovementBinding
+import com.cashflow.room.mvvm.R
+import com.cashflow.room.mvvm.databinding.ItemMovementBinding
 import kotlinx.android.synthetic.main.item_spending_category.view.*
 
 class MovementsAdapter() :

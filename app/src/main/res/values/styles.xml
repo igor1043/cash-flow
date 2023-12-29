@@ -7,8 +7,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomDateText">
+        <item name="android:textColor">@color/gray_500</item>
+    </style>
 
-
-
+    <style name="CustomWeekDayText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 
 </resources>

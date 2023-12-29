@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cashflow.room.mvvm.utils.movements.TypesMovements
-import com.example.room.mvvm.R
-import com.example.room.mvvm.databinding.ItemTypeMovementBinding
+import com.cashflow.room.mvvm.R
+import com.cashflow.room.mvvm.databinding.ItemTypeMovementBinding
 import kotlinx.android.synthetic.main.item_spending_category.view.*
 
 class TypeMovementsAdapter(val context: Context) :

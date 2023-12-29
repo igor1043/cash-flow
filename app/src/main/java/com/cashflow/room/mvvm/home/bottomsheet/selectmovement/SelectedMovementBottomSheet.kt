@@ -14,8 +14,8 @@ import com.cashflow.room.mvvm.home.adapter.MovementsAdapter
 import com.cashflow.room.mvvm.home.bottomsheet.selectmovement.adapter.TypeMovementsAdapter
 import com.cashflow.room.mvvm.home.mock.MockMovements
 import com.cashflow.room.mvvm.utils.movements.getTypeMovements
-import com.example.room.mvvm.R
-import com.example.room.mvvm.databinding.FragmentSelectMovementBinding
+import com.cashflow.room.mvvm.R
+import com.cashflow.room.mvvm.databinding.FragmentSelectMovementBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
