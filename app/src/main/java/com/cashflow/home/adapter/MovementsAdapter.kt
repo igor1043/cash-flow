@@ -24,8 +24,8 @@ class MovementsAdapter() :
                 LayoutInflater.from(parent.context),
                 R.layout.item_movement,
                 parent,
-                false
-            )
+                false,
+            ),
         )
     }
 
@@ -35,7 +35,7 @@ class MovementsAdapter() :
     }
 
     inner class ViewHolder(
-        val binding: ItemMovementBinding
+        val binding: ItemMovementBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
@@ -56,12 +56,12 @@ class MovementsAdapter() :
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovementUiModel>() {
             override fun areItemsTheSame(
                 oldItem: MovementUiModel,
-                newItem: MovementUiModel
+                newItem: MovementUiModel,
             ): Boolean = oldItem == newItem
 
             override fun areContentsTheSame(
                 oldItem: MovementUiModel,
-                newItem: MovementUiModel
+                newItem: MovementUiModel,
             ): Boolean = oldItem == newItem
         }
     }

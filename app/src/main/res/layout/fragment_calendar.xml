@@ -8,7 +8,7 @@
             android:layout_height="match_parent"
             android:background="@color/neutral_10">
 
-            <CalendarView
+            <com.cashflow.calendar.CustomCalendarView
                 android:id="@+id/calendar"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"

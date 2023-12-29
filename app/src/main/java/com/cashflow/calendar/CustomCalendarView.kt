@@ -1,3 +1,5 @@
+package com.cashflow.calendar
+
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,51 +10,52 @@ import java.util.*
 
 class CustomCalendarView : CalendarView {
 
-    private val markerDate = Calendar.getInstance().apply {
+    private val markerPaint = Paint()
+
+    // Defina a data para a qual você deseja adicionar o marcador
+    private val markedDate = Calendar.getInstance().apply {
         set(2023, Calendar.DECEMBER, 13)
     }
 
-    private val markerPaint = Paint().apply {
-        color = Color.RED
-        style = Paint.Style.FILL
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        init()
+    }
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init()
+    }
+
+    private fun init() {
+        markerPaint.color = Color.RED
+    }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        // Convertendo a data do marcador para a posição Y no CalendarView
-        val markerDayOfMonth = markerDate.get(Calendar.DAY_OF_MONTH)
-        val markerY = getYFromDay(markerDayOfMonth)
+        // Verifique se a data atual é a data marcada
+        val currentCalendar = Calendar.getInstance()
+        currentCalendar.timeInMillis = date
 
-        // Obtendo as coordenadas do dia 13/12/2023
-        val x = getXFromDay(markerDayOfMonth)
-
-        // Definindo a posição do marcador na parte inferior do dia
-        val markerRadius = 20f // Tamanho do marcador
-        val markerBottomY = markerY + markerRadius
-
-        // Desenhando o marcador
-        canvas.drawCircle(x, markerBottomY, markerRadius, markerPaint)
+        if (currentCalendar.get(Calendar.YEAR) == markedDate.get(Calendar.YEAR) &&
+            currentCalendar.get(Calendar.MONTH) == markedDate.get(Calendar.MONTH) &&
+            currentCalendar.get(Calendar.DAY_OF_MONTH) == markedDate.get(Calendar.DAY_OF_MONTH)
+        ) {
+            drawMarker(canvas)
+        }
     }
 
-    private fun getXFromDay(day: Int): Float {
-        val firstDayOfMonth = getFirstDayOfMonth()
-        val xOffset = day + firstDayOfMonth - 1
-        return xOffset * (width / 7f)
-    }
+    private fun drawMarker(canvas: Canvas) {
+        val dayMillis = 24 * 60 * 60 * 1000 // Milissegundos em um dia
 
-    private fun getYFromDay(day: Int): Float {
-        val firstDayOfMonth = getFirstDayOfMonth()
-        val yOffset = (day + firstDayOfMonth - 1) / 7
-        return yOffset * (height / 6f)
-    }
+        // Calcule as coordenadas x e y do marcador
+        val x = (width / 7) * (markedDate.get(Calendar.DAY_OF_WEEK) - 1)
+        val y = height - paddingBottom.toFloat()
 
-    private fun getFirstDayOfMonth(): Int {
-        val calendar = Calendar.getInstance()
-        calendar.set(2023, 11, 1)
-        return calendar.get(Calendar.DAY_OF_WEEK)
+        // Desenhe um círculo vermelho como marcador
+        canvas.drawCircle((x + (width / 7) / 2).toFloat(), y, 16f, markerPaint)
     }
 }
