@@ -19,7 +19,7 @@ import com.cashflow.databinding.FragmentSelectDatePeriodBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.fragment_select_date_period.*
+
 
 class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
     private val TAG = SelectedDatePeriodBottomSheet::class.java.simpleName
@@ -34,7 +34,7 @@ class SelectedDatePeriodBottomSheet : BottomSheetDialogFragment() {
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_select_date_period,
-            bottom_sheet_select_date,
+            view?.findViewById(R.id.bottom_sheet_select_date),
             false
         )
         binding.lifecycleOwner = this

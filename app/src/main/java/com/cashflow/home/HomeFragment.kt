@@ -23,8 +23,9 @@ import com.cashflow.utils.EventObserver
 import com.cashflow.utils.date.getCurrentMonth
 import com.cashflow.utils.date.getCurrentYear
 import com.cashflow.utils.styles.setStatusBarDarkMode
-import kotlinx.android.synthetic.main.navigation_view.view.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -34,6 +35,7 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        homeViewModel.teste()
         homeViewModel.setCurrentMonth(getCurrentMonth())
         homeViewModel.setCurrentYear(getCurrentYear())
         super.onCreate(savedInstanceState)

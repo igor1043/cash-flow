@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cashflow.R
 import com.cashflow.databinding.ItemMovementBinding
 import com.cashflow.home.modelview.MovementUiModel
-import kotlinx.android.synthetic.main.item_spending_category.view.*
+
 
 class MovementsAdapter() :
     ListAdapter<MovementUiModel, MovementsAdapter.ViewHolder>(DIFF_CALLBACK) {
