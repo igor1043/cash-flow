@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import com.cashflow.com.cashflow.domain.model.MovementModel
 import com.cashflow.databinding.FragmentHomeBinding
 import com.cashflow.com.cashflow.presentation.home.adapter.MovementsAdapter
 import com.cashflow.com.cashflow.presentation.home.adapter.SpendingByCategoryAdapter
@@ -35,7 +36,7 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        homeViewModel.teste()
+        homeViewModel.getUser()
         homeViewModel.setCurrentMonth(getCurrentMonth())
         homeViewModel.setCurrentYear(getCurrentYear())
         super.onCreate(savedInstanceState)
@@ -55,18 +56,16 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        homeViewModel.getMockLastMovements()
         spendingByCategoryAdapter = SpendingByCategoryAdapter()
         spendingByCategoryAdapter.submitList(MockSpendingCategory.createListItens(requireContext()))
         binding.spendingCategory.recycleView.adapter = spendingByCategoryAdapter
-
-        movementsAdapter = MovementsAdapter()
-        movementsAdapter.submitList(MockMovements.createListMovements())
-        binding.moviments.recycleView.adapter = movementsAdapter
-
         setupClick()
         setupObservers()
         super.onViewCreated(view, savedInstanceState)
     }
+
+
 
     private fun setupClick() {
         binding.principalCard.bottomDatePeriod.setOnClickListener {
@@ -86,12 +85,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupObservers() {
+        homeViewModel.user.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                binding.userName.text = it.name
+            }
+        )
         homeViewModel.currentMonth.observe(
             viewLifecycleOwner,
             EventObserver {
                 binding.principalCard.mouth.text = it.brazilianName
             }
         )
+        homeViewModel.lastMovements.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                configureAdapterLastMovements(it)
+            }
+        )
+    }
+
+    private fun configureAdapterLastMovements(movementModels: List<MovementModel>) {
+        movementsAdapter = MovementsAdapter()
+        movementsAdapter.submitList(movementModels)
+        binding.moviments.recycleView.adapter = movementsAdapter
+
     }
 
     private fun doubleClick(teste: ConstraintLayout) {

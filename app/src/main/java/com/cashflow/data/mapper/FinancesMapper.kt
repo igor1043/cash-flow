@@ -17,6 +17,14 @@ fun RevenuesEntity.toRevenuesDomain(): MovementModel {
     )
 }
 
+fun List<MovementModel>.toListRevenuesEntity() : List<RevenuesEntity> {
+    val list: MutableList<RevenuesEntity> = mutableListOf()
+    this.forEach{
+        list.add(it.toRevenuesEntity())
+    }
+    return list.toList()
+}
+
 fun MovementModel.toRevenuesEntity(): RevenuesEntity {
     val revenuesEntity = RevenuesEntity(
         expenseId = this.category.id,
@@ -39,6 +47,23 @@ fun ExpensesEntity.toExpensesDomain(): MovementModel {
         status = getStatusMovementById(this.status)
     )
 }
+
+fun List<MovementModel>.toListExpensesEntity() : List<ExpensesEntity> {
+    val list: MutableList<ExpensesEntity> = mutableListOf()
+    this.forEach{
+        list.add(it.toExpensesEntity())
+    }
+    return list.toList()
+}
+
+fun List<ExpensesEntity>.toListExpensesModel() : List<MovementModel> {
+    val list: MutableList<MovementModel> = mutableListOf()
+    this.forEach{
+        list.add(it.toExpensesDomain())
+    }
+    return list.toList()
+}
+
 
 fun MovementModel.toExpensesEntity(): ExpensesEntity {
     val revenuesEntity = ExpensesEntity(

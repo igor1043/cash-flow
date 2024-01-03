@@ -10,7 +10,7 @@ fun listMovements(): MutableList<MovementModel> {
         createItemMovement(
             MovementsCategories.WAGE,
             100.20,
-            "08:30 10/06",
+            "2022-06-10 08:30:00",
             1,
             StatusMovement.RECEIVED
         )
@@ -19,7 +19,7 @@ fun listMovements(): MutableList<MovementModel> {
         createItemMovement(
             MovementsCategories.HOME_REPAIR,
             -200.00,
-            "10:30 15/06",
+            "2022-06-15 10:30:00",
             1,
             StatusMovement.PAID
         )
@@ -29,7 +29,7 @@ fun listMovements(): MutableList<MovementModel> {
         createItemMovement(
             MovementsCategories.ELECTRIC_BILLS,
             -80.50,
-            "11:20 16/06",
+            "2022-06-16 11:20:00",
             1,
             StatusMovement.PAID
         )
@@ -39,7 +39,7 @@ fun listMovements(): MutableList<MovementModel> {
         createItemMovement(
             MovementsCategories.GAMING,
             -30.00,
-            "14:45 18/06",
+            "2022-06-18 14:45:00",
             1,
             StatusMovement.PAID
         )

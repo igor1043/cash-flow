@@ -23,5 +23,15 @@ interface ExpensesDao {
     @Query("SELECT * FROM expenses WHERE internal_id = :internalId")
     fun getExpense(
         internalId: Int,
+    ): ExpensesEntity
+
+    @Query("SELECT * FROM expenses WHERE user_id = :userId")
+    fun getExpenses(
+        userId: Int
+    ): List<ExpensesEntity>
+
+    @Query("SELECT * FROM expenses WHERE user_id = :userId ORDER BY creation_date DESC LIMIT 5")
+    fun getRecentExpenses(
+        userId: Int
     ): List<ExpensesEntity>
 }

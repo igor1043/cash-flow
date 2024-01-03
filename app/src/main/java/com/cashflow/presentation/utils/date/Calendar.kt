@@ -1,5 +1,6 @@
 package com.cashflow.com.cashflow.presentation.utils.date
 
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -59,4 +60,12 @@ enum class Day(val nameDay: String, val dayOfWeek: Int) {
     FRIDAY("Sexta", 5),
     SATURDAY("Sábado", 6),
     SUNDAY("Domingo", 7)
+}
+
+fun convertDateTimeFormat(inputDateTime: String): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    val outputFormat = SimpleDateFormat("HH:mm dd/MM", Locale.getDefault())
+
+    val date = inputFormat.parse(inputDateTime)
+    return outputFormat.format(date)
 }

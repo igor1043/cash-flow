@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cashflow.R
 import com.cashflow.databinding.ItemMovementBinding
 import com.cashflow.com.cashflow.domain.model.MovementModel
+import com.cashflow.com.cashflow.presentation.utils.date.convertDateTimeFormat
 
 
 class MovementsAdapter() :
@@ -46,7 +47,7 @@ class MovementsAdapter() :
                 this.iconMovement.setImageResource(movementUiModel.category.icon)
                 this.nameMovement.text = movementUiModel.category.nameCategory
                 this.typeMovement.text = movementUiModel.category.category.group
-                this.dateMovement.text = movementUiModel.date
+                this.dateMovement.text = convertDateTimeFormat(movementUiModel.date)
 
                 this.status.text = movementUiModel.status?.status
 

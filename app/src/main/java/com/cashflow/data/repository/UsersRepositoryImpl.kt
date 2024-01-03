@@ -8,7 +8,13 @@ import javax.inject.Inject
 class UsersRepositoryImpl @Inject constructor(
     private val database: AppDatabase,
 ) : UsersRepository {
-    override suspend fun getListUsers(internalId: Int): List<UsersEntity> {
-        return database.usersDao.getUsers(internalId)
+    override suspend fun insertUser(usersEntity: UsersEntity) {
+        database.usersDao.insert(usersEntity)
+    }
+    override suspend fun getUser(userId: Int): UsersEntity {
+        return database.usersDao.getUser(userId)
+    }
+    override suspend fun getListUsers(): List<UsersEntity> {
+        return database.usersDao.getUsers()
     }
 }

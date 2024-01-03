@@ -20,8 +20,9 @@ interface UsersDao {
     @Delete()
     fun delete(unitConsumer: UsersEntity)
 
-    @Query("SELECT * FROM users WHERE internal_id = :internalId")
-    fun getUsers(
-        internalId: Int,
-    ): List<UsersEntity>
+    @Query("SELECT * FROM users")
+    fun getUsers(): List<UsersEntity>
+
+    @Query("SELECT * FROM users WHERE internal_id = :userId")
+    fun getUser(userId: Int): UsersEntity
 }
