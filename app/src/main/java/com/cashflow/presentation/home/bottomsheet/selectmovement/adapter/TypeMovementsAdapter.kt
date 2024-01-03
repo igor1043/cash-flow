@@ -19,6 +19,7 @@ class TypeMovementsAdapter(val context: Context) :
     ListAdapter<TypesMovements, TypeMovementsAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private val positionItem = MutableLiveData<Int>()
+    var onClickMovement: (movementId: Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -49,6 +50,10 @@ class TypeMovementsAdapter(val context: Context) :
                 this.iconMovement.backgroundTintList =
                     ColorStateList.valueOf(context.getColor(typeMovement.color))
                 executePendingBindings()
+
+                root.setOnClickListener {
+                    onClickMovement(typeMovement.id)
+                }
             }
         }
     }

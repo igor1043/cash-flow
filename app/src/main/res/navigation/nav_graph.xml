@@ -28,7 +28,14 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/to_calendar"
+            app:popEnterAnim="@anim/slide_in_left_out"
+            app:popExitAnim="@anim/slide_in_right_out"
             app:destination="@id/calendar" />
+        <action
+            android:id="@+id/to_register_movement"
+            app:popEnterAnim="@anim/slide_in_left_out"
+            app:popExitAnim="@anim/slide_in_right_out"
+            app:destination="@id/calendar2" />
     </fragment>
 
     <fragment
@@ -36,5 +43,15 @@
         android:name="com.cashflow.com.cashflow.presentation.calendar.CalendarFragment"
         android:label="fragment_view_transaction"
         tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/calendar3"
+        android:name="com.cashflow.com.cashflow.presentation.calendar.CalendarFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/calendar2"
+        android:name="com.cashflow.com.cashflow.presentation.registerMovement.RegisterMovementFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_register_movement" />
 
 </navigation>

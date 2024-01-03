@@ -18,8 +18,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class SelectedMovementBottomSheet : BottomSheetDialogFragment() {
-    private val TAG = SelectedMovementBottomSheet::class.java.simpleName
+class SelectedMovementBottomSheet(
+    private val onClickMovement: (movementId: Int) -> Unit
+) : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentSelectMovementBinding
     private lateinit var mBehavior: BottomSheetBehavior<View>
     private lateinit var movementsAdapter: TypeMovementsAdapter
@@ -52,6 +53,10 @@ class SelectedMovementBottomSheet : BottomSheetDialogFragment() {
 
         setupObservers()
         setupClick()
+        movementsAdapter.onClickMovement = {
+            onClickMovement(it)
+            dismiss()
+        }
         return dialog
     }
 
@@ -59,6 +64,7 @@ class SelectedMovementBottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun setupClick() {
+
     }
 
     override fun onResume() {
@@ -68,8 +74,8 @@ class SelectedMovementBottomSheet : BottomSheetDialogFragment() {
 
     companion object {
         const val FRAGMENT_TAG = "bottomSheetFragmentMovementTag"
-        fun newInstance(): SelectedMovementBottomSheet {
-            return SelectedMovementBottomSheet().apply { }
+        fun newInstance(onClickMovement: (movementId: Int) -> Unit): SelectedMovementBottomSheet {
+            return SelectedMovementBottomSheet(onClickMovement).apply { }
         }
     }
 }

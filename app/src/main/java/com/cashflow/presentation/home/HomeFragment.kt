@@ -111,15 +111,22 @@ class HomeFragment : Fragment() {
     }
 
     private fun startFragmentSelectedMovementBottomSheet() {
-        val bottomSheetDialog =
-            SelectedMovementBottomSheet.newInstance()
+        val bottomSheetDialog = SelectedMovementBottomSheet {
+            navigateToRegisterMovement()
+        }
         bottomSheetDialog.show(
             requireActivity().supportFragmentManager,
             SelectedMovementBottomSheet.FRAGMENT_TAG
         )
     }
+
     private fun navigateToCalendar() {
         val directions = HomeFragmentDirections.toCalendar()
+        view?.findNavController()?.navigate(directions)
+    }
+
+    private fun navigateToRegisterMovement() {
+        val directions = HomeFragmentDirections.toRegisterMovement()
         view?.findNavController()?.navigate(directions)
     }
 }
