@@ -1,30 +1,56 @@
 package com.cashflow.home.mock
 
 import com.cashflow.home.modelview.MovementUiModel
-
+import com.cashflow.utils.movements.MovementsCategories
+import com.cashflow.utils.movements.StatusMovement
 
 fun listMovements(): MutableList<MovementUiModel> {
     val list: MutableList<MovementUiModel> = mutableListOf()
-    list.add(createItemMovement("recebimento","salario","entrada", 100.20, "08:30 10/06","recebido"))
-    list.add(createItemMovement("passagem","Transporte","saida" ,25.20, "08:30 10/06","pago"))
-    list.add(createItemMovement("pagamento de conta","Luz","saida", 92.58, "08:30 10/06","pago"))
-    list.add(createItemMovement("pagamento de conta","Água", "saida",25.20, "08:30 10/06","a pagar"))
-    list.add(createItemMovement("pagamento de conta","Internet", "saida",100.00, "08:30 10/06","a pagar"))
+    list.add(
+        createItemMovement(
+            MovementsCategories.WAGE,
+            100.20,
+            "08:30 10/06",
+            StatusMovement.RECEIVED
+        )
+    )
+    list.add(
+        createItemMovement(
+            MovementsCategories.HOME_REPAIR,
+            -200.00,
+            "10:30 15/06",
+            StatusMovement.PAID
+        )
+    )
+
+    list.add(
+        createItemMovement(
+            MovementsCategories.ELECTRIC_BILLS,
+            -80.50,
+            "11:20 16/06",
+            StatusMovement.PAID
+        )
+    )
+
+    list.add(
+        createItemMovement(
+            MovementsCategories.GAMING,
+            -30.00,
+            "14:45 18/06",
+            StatusMovement.PAID
+        )
+    )
     return list
 }
 
 fun createItemMovement(
-    name: String,
-    typeMovement: String,
-    movement: String,
+    category: MovementsCategories,
     value: Double,
     date: String,
-    status: String,
+    status: StatusMovement,
 ): MovementUiModel {
     return MovementUiModel(
-        name,
-        typeMovement,
-        movement,
+        category,
         value,
         date,
         status,

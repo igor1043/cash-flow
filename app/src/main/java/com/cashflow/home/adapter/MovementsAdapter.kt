@@ -1,8 +1,10 @@
 package com.cashflow.home.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DiffUtil
@@ -38,14 +40,33 @@ class MovementsAdapter() :
         val binding: ItemMovementBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("SetTextI18n")
+        @SuppressLint("SetTextI18n", "ResourceAsColor")
         fun bind(movementUiModel: MovementUiModel) {
             with(binding) {
-                this.nameMovement.text = movementUiModel.name
-                this.typeMovement.text = movementUiModel.typeMovement
+                //this.iconMovement.
+                this.iconMovement.setImageResource(movementUiModel.category.icon)
+                this.nameMovement.text = movementUiModel.category.nameCategory
+                this.typeMovement.text = movementUiModel.category.category.group
                 this.dateMovement.text = movementUiModel.date
+
+                this.status.text = movementUiModel.status?.status
+
                 this.valueMovement.text = "R$${movementUiModel.value}"
-                this.status.text = movementUiModel.status
+                if (movementUiModel.value >= 0) {
+                    this.valueMovement.setTextColor(
+                        ContextCompat.getColor(
+                            itemView.context,
+                            R.color.green_500
+                        )
+                    )
+                } else {
+                    this.valueMovement.setTextColor(
+                        ContextCompat.getColor(
+                            itemView.context,
+                            R.color.red_500
+                        )
+                    )
+                }
 
                 executePendingBindings()
             }

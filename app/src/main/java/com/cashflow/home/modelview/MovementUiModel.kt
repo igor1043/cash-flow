@@ -1,11 +1,12 @@
 package com.cashflow.home.modelview
 
+import com.cashflow.utils.movements.MovementsCategories
+import com.cashflow.utils.movements.StatusMovement
+
 data class MovementUiModel(
-    var name: String = "",
-    var typeMovement: String = "",
-    var movement: String = "",
+    var category: MovementsCategories,
     var value: Double = 0.0,
     var date: String = "",
-    var status: String = "",
+    var status: StatusMovement? = null,
 )
 

@@ -22,44 +22,59 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                android:src="@drawable/ic_analitcs"
+                android:src="@drawable/ic_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
+            <ImageView
+                android:id="@+id/icon_movement"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/icon_spending"
+                app:layout_constraintEnd_toEndOf="@+id/icon_spending"
+                app:layout_constraintStart_toStartOf="@+id/icon_spending"
+                app:layout_constraintTop_toTopOf="@+id/icon_spending"
+                tools:ignore="MissingConstraints"
+                tools:src="@drawable/ic_arrow"
+                app:tint="@color/white" />
+
             <TextView
                 android:id="@+id/name_movement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Compras semanais"
+                android:layout_marginStart="8dp"
                 android:textColor="@color/neutral_500"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/icon_spending"
-                app:layout_constraintTop_toTopOf="@+id/icon_spending" />
+                app:layout_constraintTop_toTopOf="@+id/icon_spending"
+                tools:text="Compras semanais" />
 
             <TextView
                 android:id="@+id/type_movement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="Compras semanais"
+                android:layout_marginStart="8dp"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/icon_spending"
-                app:layout_constraintTop_toBottomOf="@+id/name_movement" />
+                app:layout_constraintTop_toBottomOf="@+id/name_movement"
+                tools:ignore="SmallSp"
+                tools:text="Compras semanais" />
 
             <TextView
                 android:id="@+id/date_movement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="10:25 PM - 20/12"
+                android:layout_marginStart="8dp"
                 android:textSize="10sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/icon_spending"
-                app:layout_constraintTop_toBottomOf="@+id/type_movement" />
+                app:layout_constraintTop_toBottomOf="@+id/type_movement"
+                tools:ignore="SmallSp"
+                tools:text="10:25 PM - 20/12" />
 
 
             <TextView
