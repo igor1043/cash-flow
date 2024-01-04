@@ -25,6 +25,12 @@ class FinancesRepositoryImpl @Inject constructor(
     override suspend fun getRecentExpenses(userId: Int): List<ExpensesEntity> {
         return database.expensesDao.getRecentExpenses(userId)
     }
+    override suspend fun getExpensesForMonth(userId: Int, date: String): List<ExpensesEntity> {
+        return database.expensesDao.getExpensesForMonth(userId, date)
+    }
+    override suspend fun getTotalExpensesForMonth(userId: Int, date: String): String {
+        return database.expensesDao.getTotalExpensesForMonth(userId, date)
+    }
     override suspend fun getRevenues(internalId: Int): List<RevenuesEntity> {
         return database.revenuesDao.getRevenues(internalId)
     }

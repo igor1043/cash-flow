@@ -17,5 +17,7 @@ class FinancesUseCase @Inject constructor(
     suspend fun getRevenues(internalId: Int) = consumerUnit.getRevenues(internalId)
 
     suspend fun getLastExpenses(internalId: Int) = consumerUnit.getRecentExpenses(internalId).toListExpensesModel()
+    suspend fun getExpensesForMonth(userId: Int,date: String) = consumerUnit.getExpensesForMonth(userId, date).toListExpensesModel()
+    suspend fun getTotalExpensesForMonth(userId: Int,date: String) = consumerUnit.getTotalExpensesForMonth(userId, date)
 
 }

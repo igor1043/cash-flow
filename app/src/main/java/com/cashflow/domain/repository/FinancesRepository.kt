@@ -9,5 +9,7 @@ interface FinancesRepository {
     suspend fun getExpense(internalId: Int): ExpensesEntity
     suspend fun getExpenses(userId: Int): List<ExpensesEntity>
     suspend fun getRecentExpenses(userId: Int): List<ExpensesEntity>
+    suspend fun getExpensesForMonth(userId: Int, date: String): List<ExpensesEntity>
+    suspend fun getTotalExpensesForMonth(userId: Int, date: String): String
     suspend fun getRevenues(internalId: Int): List<RevenuesEntity>
 }

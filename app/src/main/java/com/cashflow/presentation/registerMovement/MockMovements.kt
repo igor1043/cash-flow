@@ -54,7 +54,10 @@ fun listMovements(): MutableList<MovementModel> {
 
 fun getRandomDateFormatted(): String {
     val calendar = Calendar.getInstance()
-    calendar.add(Calendar.YEAR, -1 * (0..365).random()) // Random date from the last year
+    calendar.set(Calendar.YEAR, (2023..2024).random())
+    calendar.set(Calendar.MONTH, (Calendar.JANUARY..Calendar.DECEMBER).random())
+    val maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+    calendar.set(Calendar.DAY_OF_MONTH, (1..maxDay).random())
     calendar.set(Calendar.HOUR_OF_DAY, (0..23).random())
     calendar.set(Calendar.MINUTE, (0..59).random())
 

@@ -31,7 +31,6 @@ fun getCurrentYear(): Int {
 
 }
 
-
 enum class Month(
     val abreviation: String,
     val nameMonth: String,
