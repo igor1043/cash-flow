@@ -36,7 +36,7 @@ class CalendarViewModel @Inject constructor(
             Month.values().forEach {
                 val formattedMonth = String.format("%02d", it.number)
                 val value = financesUseCase.getTotalExpensesForMonth(1, "2023-${formattedMonth}")
-                monthsOfYear.add(MonthData(it, arrayOf(value.toDouble()), R.color.red_500))
+                monthsOfYear.add(MonthData(it, arrayOf(-1 *value.toDouble())))
             }
             _consumerLiveData.postValue(Event(monthsOfYear))
         }

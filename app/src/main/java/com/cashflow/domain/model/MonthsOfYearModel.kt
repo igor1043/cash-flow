@@ -7,6 +7,5 @@ import com.cashflow.com.cashflow.presentation.utils.movements.StatusMovement
 data class MonthData(
     val month: Month,
     val values: Array<Double>,
-    val color: Int,
 )
 

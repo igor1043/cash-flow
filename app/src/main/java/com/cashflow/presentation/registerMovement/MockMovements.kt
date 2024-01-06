@@ -27,14 +27,9 @@ fun createItemMovement(
 fun listMovements(): MutableList<MovementModel> {
     val list: MutableList<MovementModel> = mutableListOf()
 
-    repeat(200) {
+    repeat(300) {
         val randomCategory = MovementsCategories.values().random()
-        val isExpense = randomCategory.typeMovement == TypesMovements.EXPENSE
-        val randomValue = if (isExpense) {
-            -1 * (1..1000).random().toDouble() // Negative value for expense
-        } else {
-            (1..1000).random().toDouble() // Positive value for revenue
-        }
+        val randomValue =-1 * (1..1000).random().toDouble()
 
         val randomDate = getRandomDateFormatted()
 
@@ -43,7 +38,7 @@ fun listMovements(): MutableList<MovementModel> {
             randomValue,
             randomDate,
             1,
-            if (isExpense) StatusMovement.PAID else StatusMovement.RECEIVED
+            StatusMovement.PAID
         )
 
         list.add(item)

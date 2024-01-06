@@ -18,7 +18,6 @@ import com.cashflow.com.cashflow.presentation.home.adapter.MovementsAdapter
 import com.cashflow.com.cashflow.presentation.home.adapter.SpendingByCategoryAdapter
 import com.cashflow.com.cashflow.presentation.home.bottomsheet.selectdateperiod.SelectedDatePeriodBottomSheet
 import com.cashflow.com.cashflow.presentation.home.bottomsheet.selectmovement.SelectedMovementBottomSheet
-import com.cashflow.com.cashflow.presentation.home.mock.MockMovements
 import com.cashflow.com.cashflow.presentation.home.mock.MockSpendingCategory
 import com.cashflow.com.cashflow.presentation.utils.EventObserver
 import com.cashflow.com.cashflow.presentation.utils.date.getCurrentMonth
