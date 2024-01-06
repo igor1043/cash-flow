@@ -1,44 +1,53 @@
 package com.cashflow.com.cashflow.presentation.registerMovement
 
-import com.cashflow.com.cashflow.domain.model.MovementModel
-import com.cashflow.com.cashflow.presentation.utils.movements.MovementsCategories
+import com.cashflow.com.cashflow.domain.model.ExpenseModel
+import com.cashflow.com.cashflow.domain.model.RevenueModel
+import com.cashflow.com.cashflow.presentation.utils.movements.MovementsExpensesCategories
+import com.cashflow.com.cashflow.presentation.utils.movements.MovementsRevenueCategories
 import com.cashflow.com.cashflow.presentation.utils.movements.StatusMovement
-import com.cashflow.com.cashflow.presentation.utils.movements.TypesMovements
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-fun createItemMovement(
-    category: MovementsCategories,
-    value: Double,
-    date: String,
-    user: Int,
-    status: StatusMovement,
-): MovementModel {
-    return MovementModel(
-        category,
-        value,
-        date,
-        user,
-        status,
-    )
-}
 
-fun listMovements(): MutableList<MovementModel> {
-    val list: MutableList<MovementModel> = mutableListOf()
+fun listExpenses(): MutableList<ExpenseModel> {
+    val list: MutableList<ExpenseModel> = mutableListOf()
 
     repeat(300) {
-        val randomCategory = MovementsCategories.values().random()
+        val randomCategory = MovementsExpensesCategories.values().random()
         val randomValue =-1 * (1..1000).random().toDouble()
 
         val randomDate = getRandomDateFormatted()
 
-        val item = createItemMovement(
+        val item = ExpenseModel(
             randomCategory,
             randomValue,
             randomDate,
             1,
             StatusMovement.PAID
+        )
+
+        list.add(item)
+    }
+
+    return list
+}
+
+fun listRevenue(): MutableList<RevenueModel> {
+    val list: MutableList<RevenueModel> = mutableListOf()
+
+    repeat(300) {
+        val randomCategory = MovementsRevenueCategories.values().random()
+        val randomValue =(250..1000).random().toDouble()
+
+        val randomDate = getRandomDateFormatted()
+
+        val item = RevenueModel(
+            randomCategory,
+            randomValue,
+            randomDate,
+            1,
+            StatusMovement.RECEIVED
         )
 
         list.add(item)
@@ -60,12 +69,4 @@ fun getRandomDateFormatted(): String {
     return dateFormat.format(calendar.time)
 }
 
-abstract class MockMovements {
 
-    companion object {
-        @JvmStatic
-        fun createListMovements(): MutableList<MovementModel> {
-            return listMovements()
-        }
-    }
-}

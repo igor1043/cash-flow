@@ -1,7 +1,7 @@
 package com.cashflow.com.cashflow.domain.usecase
 
 import com.cashflow.com.cashflow.data.local.entity.ExpensesEntity
-import com.cashflow.com.cashflow.data.mapper.toListExpensesEntity
+import com.cashflow.com.cashflow.data.local.entity.RevenuesEntity
 import com.cashflow.com.cashflow.data.mapper.toListExpensesModel
 import com.cashflow.com.cashflow.domain.repository.FinancesRepository
 import javax.inject.Inject
@@ -11,6 +11,7 @@ class FinancesUseCase @Inject constructor(
 ) {
     suspend fun saveExpense(expensesEntity: ExpensesEntity) = consumerUnit.saveExpense(expensesEntity)
     suspend fun saveExpenses(list: List<ExpensesEntity>) = consumerUnit.saveExpenses(list)
+    suspend fun saveRevenue(list: List<RevenuesEntity>) = consumerUnit.saveRevenues(list)
     suspend fun getExpense(internalId: Int) = consumerUnit.getExpense(internalId)
     suspend fun getExpenses(userId: Int) = consumerUnit.getExpenses(userId)
     suspend fun getRecentExpenses(userId: Int) = consumerUnit.getRecentExpenses(userId)

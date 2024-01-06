@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cashflow.R
-import com.cashflow.databinding.ItemMovementBinding
-import com.cashflow.com.cashflow.domain.model.MovementModel
+import com.cashflow.com.cashflow.domain.model.ExpenseModel
 import com.cashflow.com.cashflow.presentation.utils.date.convertDateTimeFormat
+import com.cashflow.databinding.ItemMovementBinding
 
 
-class MovementsAdapter() :
-    ListAdapter<MovementModel, MovementsAdapter.ViewHolder>(DIFF_CALLBACK) {
+class MovementsAdapter :
+    ListAdapter<ExpenseModel, MovementsAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private val positionItem = MutableLiveData<Int>()
 
@@ -41,7 +41,7 @@ class MovementsAdapter() :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n", "ResourceAsColor")
-        fun bind(movementUiModel: MovementModel) {
+        fun bind(movementUiModel: ExpenseModel) {
             with(binding) {
                 //this.iconMovement.
                 this.iconMovement.setImageResource(movementUiModel.category.icon)
@@ -74,15 +74,15 @@ class MovementsAdapter() :
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovementModel>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ExpenseModel>() {
             override fun areItemsTheSame(
-                oldItem: MovementModel,
-                newItem: MovementModel,
+                oldItem: ExpenseModel,
+                newItem: ExpenseModel,
             ): Boolean = oldItem == newItem
 
             override fun areContentsTheSame(
-                oldItem: MovementModel,
-                newItem: MovementModel,
+                oldItem: ExpenseModel,
+                newItem: ExpenseModel,
             ): Boolean = oldItem == newItem
         }
     }

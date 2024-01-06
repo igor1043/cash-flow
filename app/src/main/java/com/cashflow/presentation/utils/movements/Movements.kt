@@ -86,10 +86,15 @@ enum class MovementsRevenueCategories(
         TypesMovements.REVENUE,
         GroupCategories.REVENUES,
         "Salário"
-    ),
+    );
+    companion object {
+        fun getRevenueCategorieById(id: Int): MovementsRevenueCategories {
+            return MovementsRevenueCategories.values().first { it.id == id }
+        }
+    }
 }
 
-enum class MovementsCategories(
+enum class MovementsExpensesCategories(
     val id: Int,
     val icon: Int,
     val typeMovement: TypesMovements,
@@ -402,7 +407,7 @@ enum class MovementsCategories(
      ),*/
 
     companion object {
-        fun getMovementsCategoriesById(id: Int): MovementsCategories {
+        fun getMovementsCategoriesById(id: Int): MovementsExpensesCategories {
             return values().first { it.id == id }
         }
     }

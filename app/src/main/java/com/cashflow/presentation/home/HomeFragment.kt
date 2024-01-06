@@ -12,7 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import com.cashflow.com.cashflow.domain.model.MovementModel
+import com.cashflow.com.cashflow.domain.model.ExpenseModel
 import com.cashflow.databinding.FragmentHomeBinding
 import com.cashflow.com.cashflow.presentation.home.adapter.MovementsAdapter
 import com.cashflow.com.cashflow.presentation.home.adapter.SpendingByCategoryAdapter
@@ -104,7 +104,7 @@ class HomeFragment : Fragment() {
         )
     }
 
-    private fun configureAdapterLastMovements(movementModels: List<MovementModel>) {
+    private fun configureAdapterLastMovements(movementModels: List<ExpenseModel>) {
         movementsAdapter = MovementsAdapter()
         movementsAdapter.submitList(movementModels)
         binding.moviments.recycleView.adapter = movementsAdapter

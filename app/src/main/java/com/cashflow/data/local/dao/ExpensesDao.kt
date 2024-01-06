@@ -45,5 +45,5 @@ interface ExpensesDao {
     fun getTotalExpensesForMonth(
         userId: Int,
         targetMonth: String // Formato: "YYYY-MM", por exemplo, "2024-01" para janeiro de 2024
-    ): String
+    ): Int
 }

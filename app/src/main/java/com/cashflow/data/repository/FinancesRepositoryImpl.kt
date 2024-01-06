@@ -15,6 +15,9 @@ class FinancesRepositoryImpl @Inject constructor(
     override suspend fun saveExpenses(list: List<ExpensesEntity>) {
         return database.expensesDao.insertAll(list)
     }
+    override suspend fun saveRevenues(list: List<RevenuesEntity>) {
+        return database.revenuesDao.insertAll(list)
+    }
 
     override suspend fun getExpense(internalId: Int): ExpensesEntity {
         return database.expensesDao.getExpense(internalId)
@@ -28,7 +31,7 @@ class FinancesRepositoryImpl @Inject constructor(
     override suspend fun getExpensesForMonth(userId: Int, date: String): List<ExpensesEntity> {
         return database.expensesDao.getExpensesForMonth(userId, date)
     }
-    override suspend fun getTotalExpensesForMonth(userId: Int, date: String): String {
+    override suspend fun getTotalExpensesForMonth(userId: Int, date: String): Int {
         return database.expensesDao.getTotalExpensesForMonth(userId, date)
     }
     override suspend fun getRevenues(internalId: Int): List<RevenuesEntity> {

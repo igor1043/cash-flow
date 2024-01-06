@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cashflow.com.cashflow.data.mapper.toUserDomain
-import com.cashflow.com.cashflow.domain.model.MovementModel
+import com.cashflow.com.cashflow.domain.model.ExpenseModel
 import com.cashflow.com.cashflow.domain.model.UserModel
 import com.cashflow.com.cashflow.domain.usecase.FinancesUseCase
 import com.cashflow.com.cashflow.domain.usecase.UsersUseCase
@@ -26,8 +26,8 @@ class HomeViewModel @Inject constructor(
     private val _user = MutableLiveData<Event<UserModel>>()
     val user: LiveData<Event<UserModel>> = _user
 
-    private val _lastMovements = MutableLiveData<Event<List<MovementModel>>>()
-    val lastMovements: LiveData<Event<List<MovementModel>>> = _lastMovements
+    private val _lastMovements = MutableLiveData<Event<List<ExpenseModel>>>()
+    val lastMovements: LiveData<Event<List<ExpenseModel>>> = _lastMovements
 
     private val _currentMonth = MutableLiveData<Event<Month>>()
     val currentMonth: LiveData<Event<Month>> = _currentMonth
