@@ -128,8 +128,8 @@
 
                         <include
                             android:id="@+id/buttons_home"
-                            layout="@layout/layout_buttons_home"
-                            android:layout_width="match_parent"
+                            layout="@layout/layout_quick_access_menu"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="12dp"

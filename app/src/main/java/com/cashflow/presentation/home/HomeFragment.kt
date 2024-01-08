@@ -12,9 +12,13 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import com.cashflow.R
 import com.cashflow.com.cashflow.domain.model.ExpenseModel
+import com.cashflow.com.cashflow.domain.model.IdQuickAccess
+import com.cashflow.com.cashflow.domain.model.QuickAccessModel
 import com.cashflow.databinding.FragmentHomeBinding
 import com.cashflow.com.cashflow.presentation.home.adapter.MovementsAdapter
+import com.cashflow.com.cashflow.presentation.home.adapter.QuickAccessAdapter
 import com.cashflow.com.cashflow.presentation.home.adapter.SpendingByCategoryAdapter
 import com.cashflow.com.cashflow.presentation.home.bottomsheet.selectdateperiod.SelectedDatePeriodBottomSheet
 import com.cashflow.com.cashflow.presentation.home.bottomsheet.selectmovement.SelectedMovementBottomSheet
@@ -31,7 +35,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var spendingByCategoryAdapter: SpendingByCategoryAdapter
     private lateinit var movementsAdapter: MovementsAdapter
-
+    private lateinit var quickAccessAdapter: QuickAccessAdapter
     private val homeViewModel: HomeViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,9 +65,9 @@ class HomeFragment : Fragment() {
         binding.spendingCategory.recycleView.adapter = spendingByCategoryAdapter
         setupClick()
         setupObservers()
+        configureQuickAccessAdapter()
         super.onViewCreated(view, savedInstanceState)
     }
-
 
 
     private fun setupClick() {
@@ -78,9 +82,9 @@ class HomeFragment : Fragment() {
         binding.createMovement.setOnClickListener {
             startFragmentSelectedMovementBottomSheet()
         }
-        binding.buttonsHome.buttonPurchasesHistoric.setOnClickListener {
+/*        binding.buttonsHome.buttonPurchasesHistoric.setOnClickListener {
             navigateToCalendar()
-        }
+        }*/
     }
 
     private fun setupObservers() {
@@ -111,12 +115,39 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun configureQuickAccessAdapter() {
+        quickAccessAdapter = QuickAccessAdapter()
+        val listButtons = mutableListOf<QuickAccessModel>()
+        listButtons.add(QuickAccessModel(IdQuickAccess.MyExpenses, "Minhas Despesas", R.drawable.ic_movement_gift))
+        listButtons.add(QuickAccessModel(IdQuickAccess.MyRevenues, "Minhas Receitas", R.drawable.ic_movement_gift))
+        listButtons.add(QuickAccessModel(IdQuickAccess.Calendar, "Minhas Despesas", R.drawable.ic_movement_gift))
+        listButtons.add(QuickAccessModel(IdQuickAccess.MyCards, "Meus Cartões", R.drawable.ic_movement_gift))
+
+        quickAccessAdapter.submitList(listButtons)
+        binding.buttonsHome.recyclerView.adapter = quickAccessAdapter
+
+        quickAccessAdapter.onClick = {
+            when(it) {
+                IdQuickAccess.MyExpenses ->{
+                    navigateToCalendar()
+                }
+                IdQuickAccess.Calendar ->{}
+                IdQuickAccess.MyRevenues ->{}
+                IdQuickAccess.MyCards ->{}
+            }
+
+        }
+
+    }
+
     private fun doubleClick(teste: ConstraintLayout) {
         teste.isEnabled = false
         Handler().postDelayed({
             teste.isEnabled = true
         }, 1000)
     }
+
+
 
     private fun startFragmentSelectedDatePeriodBottomSheet() {
         val bottomSheetDialog =
