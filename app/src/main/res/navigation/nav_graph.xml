@@ -25,21 +25,28 @@
         android:id="@+id/home"
         android:name="com.cashflow.com.cashflow.presentation.home.HomeFragment"
         android:label="fragment_view_transaction"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/to_calendar"
+            app:destination="@id/calendar"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_left_out"
-            app:popExitAnim="@anim/slide_in_right_out"
-            app:destination="@id/calendar" />
+            app:popExitAnim="@anim/slide_in_right_out" />
         <action
             android:id="@+id/to_register_movement"
+            app:destination="@id/calendar2"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_left_out"
-            app:popExitAnim="@anim/slide_in_right_out"
-            app:destination="@id/calendar2" />
+            app:popExitAnim="@anim/slide_in_right_out" />
+        <action
+            android:id="@+id/to_my_finances"
+            app:destination="@id/my_finances"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_left_out"
+            app:popExitAnim="@anim/slide_in_right_out" />
     </fragment>
 
     <fragment
@@ -47,6 +54,11 @@
         android:name="com.cashflow.com.cashflow.presentation.calendar.CalendarFragment"
         android:label="fragment_view_transaction"
         tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/my_finances"
+        android:name="com.cashflow.com.cashflow.presentation.myexpenses.MyFinancesFragment"
+        android:label="fragment_my_finances"
+        tools:layout="@layout/fragment_my_finances" />
     <fragment
         android:id="@+id/calendar3"
         android:name="com.cashflow.com.cashflow.presentation.calendar.CalendarFragment"

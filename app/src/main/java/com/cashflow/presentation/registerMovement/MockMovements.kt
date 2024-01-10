@@ -13,7 +13,7 @@ import java.util.Locale
 fun listExpenses(): MutableList<ExpenseModel> {
     val list: MutableList<ExpenseModel> = mutableListOf()
 
-    repeat(300) {
+    repeat(2300) {
         val randomCategory = MovementsExpensesCategories.values().random()
         val randomValue =-1 * (1..1000).random().toDouble()
 
@@ -36,7 +36,7 @@ fun listExpenses(): MutableList<ExpenseModel> {
 fun listRevenue(): MutableList<RevenueModel> {
     val list: MutableList<RevenueModel> = mutableListOf()
 
-    repeat(300) {
+    repeat(2300) {
         val randomCategory = MovementsRevenueCategories.values().random()
         val randomValue =(250..1000).random().toDouble()
 

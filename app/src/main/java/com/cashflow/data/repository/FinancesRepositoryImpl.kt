@@ -37,4 +37,10 @@ class FinancesRepositoryImpl @Inject constructor(
     override suspend fun getRevenues(internalId: Int): List<RevenuesEntity> {
         return database.revenuesDao.getRevenues(internalId)
     }
+    override suspend fun getExpensesByDay(userId: Int, date: String): List<ExpensesEntity> {
+        return database.expensesDao.getExpensesByDay(userId, date)
+    }
+    override suspend fun getRevenuesByDay(userId: Int, date: String): List<RevenuesEntity> {
+        return database.expensesDao.getRevenuesByDay(userId, date)
+    }
 }

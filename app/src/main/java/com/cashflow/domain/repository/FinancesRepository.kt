@@ -13,4 +13,6 @@ interface FinancesRepository {
     suspend fun getExpensesForMonth(userId: Int, date: String): List<ExpensesEntity>
     suspend fun getTotalExpensesForMonth(userId: Int, date: String): Int
     suspend fun getRevenues(internalId: Int): List<RevenuesEntity>
+    suspend fun getExpensesByDay(userId: Int, date: String): List<ExpensesEntity>
+    suspend fun getRevenuesByDay(userId: Int, date: String): List<RevenuesEntity>
 }

@@ -71,6 +71,7 @@ class HomeFragment : Fragment() {
 
 
     private fun setupClick() {
+
         binding.principalCard.bottomDatePeriod.setOnClickListener {
             startFragmentSelectedDatePeriodBottomSheet()
 
@@ -112,7 +113,6 @@ class HomeFragment : Fragment() {
         movementsAdapter = MovementsAdapter()
         movementsAdapter.submitList(movementModels)
         binding.moviments.recycleView.adapter = movementsAdapter
-
     }
 
     private fun configureQuickAccessAdapter() {
@@ -129,9 +129,11 @@ class HomeFragment : Fragment() {
         quickAccessAdapter.onClick = {
             when(it) {
                 IdQuickAccess.MyExpenses ->{
+                    navigateToMyFinances()
+                }
+                IdQuickAccess.Calendar ->{
                     navigateToCalendar()
                 }
-                IdQuickAccess.Calendar ->{}
                 IdQuickAccess.MyRevenues ->{}
                 IdQuickAccess.MyCards ->{}
             }
@@ -166,6 +168,11 @@ class HomeFragment : Fragment() {
             requireActivity().supportFragmentManager,
             SelectedMovementBottomSheet.FRAGMENT_TAG
         )
+    }
+
+    private fun navigateToMyFinances() {
+        val directions = HomeFragmentDirections.toMyFinances()
+        view?.findNavController()?.navigate(directions)
     }
 
     private fun navigateToCalendar() {

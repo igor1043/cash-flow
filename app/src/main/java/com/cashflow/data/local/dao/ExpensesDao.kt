@@ -2,6 +2,7 @@ package com.cashflow.com.cashflow.data.local.dao
 
 import androidx.room.*
 import com.cashflow.com.cashflow.data.local.entity.ExpensesEntity
+import com.cashflow.com.cashflow.data.local.entity.RevenuesEntity
 
 @Dao
 interface ExpensesDao {
@@ -46,4 +47,16 @@ interface ExpensesDao {
         userId: Int,
         targetMonth: String // Formato: "YYYY-MM", por exemplo, "2024-01" para janeiro de 2024
     ): Int
+
+    @Query("SELECT * FROM expenses WHERE user_id = :userId AND substr(creation_date, 1, 10) = :targetMonth")
+    fun getExpensesByDay(
+        userId: Int,
+        targetMonth: String
+    ): List<ExpensesEntity>
+
+    @Query("SELECT * FROM revenues WHERE user_id = :userId AND substr(creation_date, 1, 10) = :targetMonth")
+    fun getRevenuesByDay(
+        userId: Int,
+        targetMonth: String
+    ): List<RevenuesEntity>
 }

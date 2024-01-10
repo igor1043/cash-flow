@@ -6,6 +6,14 @@ import com.cashflow.com.cashflow.presentation.utils.movements.MovementsRevenueCa
 import com.cashflow.com.cashflow.presentation.utils.movements.StatusMovement.Companion.getStatusMovementById
 
 
+fun List<RevenuesEntity>.toListRevenueDomain() : List<RevenueModel> {
+    val list: MutableList<RevenueModel> = mutableListOf()
+    this.forEach{
+        list.add(it.toRevenuesDomain())
+    }
+    return list.toList()
+}
+
 fun RevenuesEntity.toRevenuesDomain(): RevenueModel {
     return RevenueModel(
         category = getRevenueCategorieById(expenseId),
