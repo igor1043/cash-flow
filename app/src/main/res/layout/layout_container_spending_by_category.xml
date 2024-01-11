@@ -33,7 +33,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cash_bold"
-                    android:text="Orçamento para Setembro"
+                    android:text="Planejamento para Setembro"
                     android:textColor="@color/neutral_80"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"

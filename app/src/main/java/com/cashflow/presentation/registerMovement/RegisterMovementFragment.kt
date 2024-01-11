@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.cashflow.R
 import com.cashflow.com.cashflow.presentation.home.HomeViewModel
 import com.cashflow.databinding.FragmentCalendarBinding
@@ -45,6 +46,13 @@ class RegisterMovementFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpClick()
+    }
+
+    private fun setUpClick() {
+        binding.back.setOnClickListener {
+            view?.findNavController()?.popBackStack()
+        }
     }
 
 }

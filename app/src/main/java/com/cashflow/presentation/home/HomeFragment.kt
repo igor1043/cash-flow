@@ -119,6 +119,7 @@ class HomeFragment : Fragment() {
         quickAccessAdapter = QuickAccessAdapter()
         val listButtons = mutableListOf<QuickAccessModel>()
         listButtons.add(QuickAccessModel(IdQuickAccess.MyExpenses, "Minhas Despesas", R.drawable.ic_movement_gift))
+        listButtons.add(QuickAccessModel(IdQuickAccess.MyPlanning, "Definir \nPlanejamento", R.drawable.ic_my_planning))
         listButtons.add(QuickAccessModel(IdQuickAccess.MyRevenues, "Minhas Receitas", R.drawable.ic_movement_gift))
         listButtons.add(QuickAccessModel(IdQuickAccess.Calendar, "Minhas Despesas", R.drawable.ic_movement_gift))
         listButtons.add(QuickAccessModel(IdQuickAccess.MyCards, "Meus Cartões", R.drawable.ic_movement_gift))
@@ -136,6 +137,9 @@ class HomeFragment : Fragment() {
                 }
                 IdQuickAccess.MyRevenues ->{}
                 IdQuickAccess.MyCards ->{}
+                IdQuickAccess.MyPlanning ->{
+                    navigateToMyPlanning()
+                }
             }
 
         }
@@ -177,6 +181,11 @@ class HomeFragment : Fragment() {
 
     private fun navigateToCalendar() {
         val directions = HomeFragmentDirections.toCalendar()
+        view?.findNavController()?.navigate(directions)
+    }
+
+    private fun navigateToMyPlanning() {
+        val directions = HomeFragmentDirections.toMyPlannig()
         view?.findNavController()?.navigate(directions)
     }
 

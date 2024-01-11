@@ -47,10 +47,22 @@
             app:exitAnim="@anim/slide_in_left"
             app:popEnterAnim="@anim/slide_in_left_out"
             app:popExitAnim="@anim/slide_in_right_out" />
+        <action
+            android:id="@+id/to_my_plannig"
+            app:destination="@id/my_plannig"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_left_out"
+            app:popExitAnim="@anim/slide_in_right_out" />
     </fragment>
 
     <fragment
         android:id="@+id/calendar"
+        android:name="com.cashflow.com.cashflow.presentation.calendar.CalendarFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/calendar4"
         android:name="com.cashflow.com.cashflow.presentation.calendar.CalendarFragment"
         android:label="fragment_view_transaction"
         tools:layout="@layout/fragment_calendar" />
@@ -60,10 +72,10 @@
         android:label="fragment_my_finances"
         tools:layout="@layout/fragment_my_finances" />
     <fragment
-        android:id="@+id/calendar3"
-        android:name="com.cashflow.com.cashflow.presentation.calendar.CalendarFragment"
-        android:label="fragment_view_transaction"
-        tools:layout="@layout/fragment_calendar" />
+        android:id="@+id/my_plannig"
+        android:name="com.cashflow.com.cashflow.presentation.myplanning.MyPlanningFragment"
+        android:label="fragment_my_planning"
+        tools:layout="@layout/fragment_my_planning" />
     <fragment
         android:id="@+id/calendar2"
         android:name="com.cashflow.com.cashflow.presentation.registerMovement.RegisterMovementFragment"

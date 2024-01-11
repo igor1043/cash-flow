@@ -13,6 +13,7 @@ data class QuickAccessModel(
 enum class IdQuickAccess(
 ) {
     MyExpenses,
+    MyPlanning,
     Calendar,
     MyRevenues,
     MyCards,
