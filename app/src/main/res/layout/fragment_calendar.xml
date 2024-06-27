@@ -64,16 +64,30 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
-            <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-                android:id="@+id/aa_chart_view"
+            <com.events.calendar.views.EventsCalendar
+                android:id="@+id/eventsCalendar"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/calendar">
+                app:layout_constraintTop_toBottomOf="@+id/calendar"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                app:datesTextSize="16sp"
+                app:eventDotColor="#ff0000"
+                app:isBoldTextOnSelectionEnabled="true"
+                app:monthTitleColor="#ffffff"
+                app:monthTitleTextSize="16sp"
+                app:primaryTextColor="#c4c4c4"
+                app:secondaryTextColor="#666666"
+                app:selectedTextColor="#000000"
+                app:selectionColor="#ffe600"
+                app:weekHeaderColor="#c6c6c6"
+                app:rangeSelectionColor="#ffe600"
+                app:rangeSelectionStartColor="#c1ae01"
+                app:rangeSelectionEndColor="#c1ae01"
+                app:weekHeaderTextSize="16sp" />
 
-
-            </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

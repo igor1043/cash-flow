@@ -117,7 +117,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.2.0'
 
-    implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
+   // implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
 
     implementation "androidx.room:room-runtime:$roomVersion"
     annotationProcessor "androidx.room:room-compiler:$roomVersion"
@@ -126,6 +126,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+
+    implementation 'com.github.tizisdeepan:eventscalendar:1.6.1'
 
 }
 kapt {
